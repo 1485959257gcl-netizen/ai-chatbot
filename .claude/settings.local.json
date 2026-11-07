@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(netstat *)",
+      "Bash(cd C:\\\\Users\\\\PC\\\\Desktop\\\\AI对话 *)"
+    ]
+  }
+}
