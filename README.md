@@ -33,4 +33,20 @@ AI对话/
 
 ## 配置
 
-模型地址、API Key、模型名、系统提示词都在 `app.py` 顶部的配置区修改。
+敏感信息通过**环境变量**配置（推荐），或修改 `app.py` 顶部的配置区：
+
+| 环境变量 | 说明 | 默认值 |
+|---|---|---|
+| `API_KEY` | 大模型 API Key（必填） | 无 |
+| `API_URL` | 模型接口地址 | AMD Radeon API |
+| `MODEL_NAME` | 模型名称 | DeepSeek-V4-Flash |
+| `SECRET_KEY` | Flask Session 签名密钥 | 内置默认值 |
+
+Windows 设置示例（PowerShell）：
+
+```powershell
+$env:API_KEY = "你的APIKey"
+python app.py
+```
+
+访问密码在 `app.py` 顶部 `ACCESS_PASSWORD` 处修改。

@@ -8,14 +8,16 @@ from flask import Flask, request, jsonify, Response, send_from_directory, sessio
 import requests
 import json
 import socket
+import os
 
 app = Flask(__name__, static_folder="static", static_url_path="")
-app.secret_key = "change-me-9f8e7d6c5b4a3210"  # 用于签名会话 Cookie
+app.secret_key = os.environ.get("SECRET_KEY", "change-me-9f8e7d6c5b4a3210")  # 用于签名会话 Cookie
 
 # ================== 配置 ==================
-API_URL = "https://developer.amd.com.cn/radeon/api/v1/chat/completions"
-API_KEY = "rc-af9d3c37641e559c54b6822d0767721f8181065b44aa861d"
-MODEL_NAME = "DeepSeek-V4-Flash"
+# 敏感信息通过环境变量配置；也可直接写在下方等号里（不建议提交到公开仓库）
+API_URL = os.environ.get("API_URL", "https://developer.amd.com.cn/radeon/api/v1/chat/completions")
+API_KEY = os.environ.get("API_KEY", "在此填入你的APIKey")
+MODEL_NAME = os.environ.get("MODEL_NAME", "DeepSeek-V4-Flash")
 ACCESS_PASSWORD = "0307"  # 访问密码
 
 
